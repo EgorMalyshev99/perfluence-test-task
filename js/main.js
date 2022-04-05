@@ -1,20 +1,7 @@
-import './jquery-3.6.0.min.js';
-import './bootstrap.min.js';
-import './wNumb.min.js';
-import './nouislider.min.js';
-import './progressbar.min.js';
-import {
-  OkayNav
-} from './responsive-menu.js';
-
 document.addEventListener('DOMContentLoaded', function() {
-  const mainNav = document.querySelector('.main-nav');
-  const submenuInner = document.querySelector('.submenu__inner');
-  const submenuToggler = document.querySelector('.submenu-toggler');
-
-  var okaynav = new OkayNav(mainNav, {
-    overflow: submenuInner,
-    toggle: submenuToggler
+  var navigation = $('#nav-main').okayNav();
+  document.querySelectorAll('.okayNav__nav--visible li').forEach((item, index) => {
+    item.style.order = index;
   });
 
   const slidersWrap = document.querySelectorAll('.range');

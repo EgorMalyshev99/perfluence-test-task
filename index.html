@@ -8,6 +8,7 @@
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/nouislider.css">
+  <link rel="stylesheet" href="./css/responsive-menu.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>Perfluence test</title>
 </head>
@@ -16,36 +17,21 @@
   <header class="page-header">
     <div class="container">
       <div class="page-header__inner">
-        <span class="logo me-5">Logo</span>
-        <div class="d-flex align-items-center">
-          <nav class="main-nav">
-            <ul class="main-nav__inner">
-              <li><a class="main-nav-item" href="#">Главная</a></li>
-              <li><a class="main-nav-item" href="#">Блог</a></li>
-              <li><a class="main-nav-item" href="#">Новости</a></li>
-              <li><a class="main-nav-item" href="#">Товары</a></li>
-              <li><a class="main-nav-item" href="#">Категории</a></li>
-              <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
-              <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
-              <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
-              <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
-            </ul>
-          </nav>
-          <a class="submenu-toggler main-nav-item collapsed" data-bs-toggle="collapse" href="#subMenuCollapse" role="button" aria-expanded="false" aria-controls="subMenuCollapse">
-            <div class="submenu-toggler-text">
-              <span class="me-2">Еще</span>
-              <span class="arrow-down">
-            </div>
-            <div class="burger">
-              <span class="burger-line"></span>
-              <span class="burger-line"></span>
-              <span class="burger-line"></span>
-            </div>
-          </a>
-        </div>
-        <div class="submenu collapse" id="subMenuCollapse">
-          <div class="submenu__inner"></div>
-        </div>
+        <a class="logo" href="#">Logo</a>
+        <nav role="navigation" id="nav-main" class="okayNav main-nav">
+          <ul>
+            <li><a class="main-nav-item" href="#">Главная</a></li>
+            <li><a class="main-nav-item" href="#">Блог</a></li>
+            <li><a class="main-nav-item" href="#">Новости</a></li>
+            <li><a class="main-nav-item" href="#">Товары</a></li>
+            <li><a class="main-nav-item" href="#">Категории</a></li>
+            <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
+            <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
+            <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
+            <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
+            <li><a class="main-nav-item" href="#">Оченьдлинныйтекст</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -115,6 +101,12 @@
     </div>
   </footer>
 
+  <script defer src="./js/jquery-3.6.0.min.js"></script>
+  <script defer src="./js/responsive-menu.js"></script>
+  <script defer src="./js/bootstrap.min.js"></script>
+  <script defer src="./js/nouislider.min.js"></script>
+  <script defer src="./js/wNumb.min.js"></script>
+  <script defer src="./js/progressbar.min.js"></script>
   <script defer src="./js/main.js" type="module"></script>
 </body>
 
