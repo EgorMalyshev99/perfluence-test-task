@@ -1,3 +1,14 @@
+function setSliderDefault(input, track, resetBtn) {
+  [...arguments].forEach(item => item.classList.remove('active'));
+  resetBtn.setAttribute('disabled', 'true');
+  input.value = '';
+}
+
+function setSliderActive(input, track, resetBtn) {
+  [...arguments].forEach(item => item.classList.add('active'));
+  resetBtn.removeAttribute('disabled');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var navigation = $('#nav-main').okayNav();
   document.querySelectorAll('.okayNav__nav--visible li').forEach((item, index) => {
@@ -5,9 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const slidersWrap = document.querySelectorAll('.range');
-  const sliders = document.querySelectorAll('.range .slider');
 
-  [].slice.call(sliders).forEach(function(slider, index) {
+  document.querySelectorAll('.range input[type="range"]').forEach((input, index) => {
+    const valueLeft = slidersWrap[index].querySelector('.data-percent--left');
+    const valueRight = slidersWrap[index].querySelector('.data-percent--right');
+    const fakeTrack = slidersWrap[index].querySelector('.fake-track');
+    const resetBtn = slidersWrap[index].querySelector('.reset-slider');
+    let isActive = false;
 
     const barLeft = new ProgressBar.Circle(slidersWrap[index].querySelector('.circle--left'), {
       strokeWidth: 2,
@@ -25,24 +40,32 @@ document.addEventListener('DOMContentLoaded', function() {
       svgStyle: null
     });
 
-    noUiSlider.create(slider, {
-      start: 40,
-      connect: [true, false],
-      range: {
-        'min': 0,
-        'max': 100
-      },
-      format: wNumb({
-        decimals: 0
-      })
+    barLeft.animate(0);
+    barRight.animate(0);
+
+    fakeTrack.style.width = 0;
+
+    input.addEventListener('input', (evt) => {
+      if (!isActive) {
+        isActive = true;
+        setSliderActive(input, fakeTrack, resetBtn);
+      }
+      valueLeft.innerText = `${evt.target.value}%`;
+      valueRight.innerText = `${100 - evt.target.value}%`;
+
+      barLeft.animate(input.value / 100);
+      barRight.animate((100 - input.value) / 100);
+
+      fakeTrack.style.width = `${input.value}%`;
     });
 
-    // Bind the color changing function to the update event.
-    slider.noUiSlider.on('update', function() {
-      slidersWrap[index].querySelector('.data-percent--left').innerText = `${slider.noUiSlider.get()}%`;
-      slidersWrap[index].querySelector('.data-percent--right').innerText = `${100-slider.noUiSlider.get()}%`;
-      barLeft.animate(slider.noUiSlider.get() / 100);
-      barRight.animate((100 - slider.noUiSlider.get()) / 100);
+    resetBtn.addEventListener('click', () => {
+      setSliderDefault(input, fakeTrack, resetBtn);
+      barLeft.animate(0);
+      barRight.animate(0);
+      valueLeft.innerText = '';
+      valueRight.innerText = '';
+      isActive = false;
     });
   });
 });

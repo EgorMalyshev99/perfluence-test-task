@@ -46,7 +46,7 @@
               <div class="square"></div>
             </div>
             <div class="range-item__data">
-              <span class="data-percent data-percent--left">40%</span>
+              <span class="data-percent data-percent--left"></span>
               <span class="data-text">Тест</span>
             </div>
           </div>
@@ -56,15 +56,20 @@
               <div class="triangle"></div>
             </div>
             <div class="range-item__data">
-              <span class="data-percent data-percent--right">60%</span>
+              <span class="data-percent data-percent--right"></span>
               <span class="data-text">Тест</span>
             </div>
           </div>
         </div>
         <div class="d-flex justify-content-start">
-          <div class="slider" id="slider"></div>
+          <div class="slider">
+            <span class="fake-track"></span>
+            <input type="range" min="0" max="100" step="1" value="">
+          </div>
+          <button class="reset-slider" type="button" disabled></button>
         </div>
       </div>
+
       <div class="range">
         <div class="range-item d-flex justify-content-between mb-5">
           <div class="d-flex align-items-center">
@@ -73,7 +78,7 @@
               <div class="square"></div>
             </div>
             <div class="range-item__data">
-              <span class="data-percent data-percent--left">40%</span>
+              <span class="data-percent data-percent--left"></span>
               <span class="data-text">Тест</span>
             </div>
           </div>
@@ -83,13 +88,17 @@
               <div class="triangle"></div>
             </div>
             <div class="range-item__data">
-              <span class="data-percent data-percent--right">60%</span>
+              <span class="data-percent data-percent--right"></span>
               <span class="data-text">Тест</span>
             </div>
           </div>
         </div>
         <div class="d-flex justify-content-start">
-          <div class="slider" id="slider"></div>
+          <div class="slider">
+            <span class="fake-track"></span>
+            <input type="range" min="0" max="100" step="1" value="">
+          </div>
+          <button class="reset-slider" type="button" disabled></button>
         </div>
       </div>
     </div>
@@ -104,10 +113,8 @@
   <script defer src="./js/jquery-3.6.0.min.js"></script>
   <script defer src="./js/responsive-menu.js"></script>
   <script defer src="./js/bootstrap.min.js"></script>
-  <script defer src="./js/nouislider.min.js"></script>
-  <script defer src="./js/wNumb.min.js"></script>
   <script defer src="./js/progressbar.min.js"></script>
-  <script defer src="./js/main.js" type="module"></script>
+  <script defer src="./js/main.js"></script>
 </body>
 
 </html>
